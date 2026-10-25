@@ -1,0 +1,22 @@
+services:
+  - type: worker
+    name: binance-event-bot
+    runtime: docker
+    plan: starter
+    disk:
+      name: data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: TG_API_ID
+        sync: false
+      - key: TG_API_HASH
+        sync: false
+      - key: TG_SESSION_STRING
+        sync: false
+      - key: DB_PATH
+        value: /app/data/bot.db
